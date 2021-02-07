@@ -16,3 +16,12 @@ hold.addEventListener('click',()=>{
  })
 
 
+/*--new game--*/
+let newGame = document.getElementById('newGame');
+
+newGame.addEventListener('click', ()=>{
+  scoreJ1 = 0;
+  diceRandom = 0;
+  score.innerHTML = scoreJ1;
+  dice.innerHTML = "";
+})
