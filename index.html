@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Jeu de dés</title>
   <!--ionic-->
   <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
   <!--monstyle css-->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css"/>
   <!--font  -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
@@ -21,8 +21,9 @@
 </head>
 <body>
 <ion-grid>
+    
   <ion-row class="ion-justify-content-center">
-    <ion-button color="success" id="rollDice">Roll Dice
+    <ion-button color="success" id="rollDice">roll
     </ion-button>
   </ion-row>
     <ion-row class="ion-justify-content-center">
@@ -33,15 +34,20 @@
       <ion-button color="danger" id="newGame">new game
       </ion-button>
     </ion-row>
+    <ion-row class="ion-justify-content-center">
+    <img src="./img-dice/dice1.png" alt="" id="dicePicture"/>
+    </ion-row>
 </ion-grid>
-  
+
+
+
 
 <ion-badge color="primary" id="dice"></ion-badge>
 <p>ton score :</p>
 <ion-badge color="warning" id="score"></ion-badge>
 
-
-
+<!-- icons -->
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 </body>
 <script src="script.js"></script>
 </html>

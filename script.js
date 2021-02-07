@@ -2,12 +2,17 @@ let rollDice = document.getElementById('rollDice');
 let dice = document.getElementById('dice');
 let hold = document.getElementById('hold');
 let score = document.getElementById('score');
+let img = document.getElementById('dicePicture');
 let diceRandom = 0;
 let scoreJ1 = 0;
 
+
 rollDice.addEventListener('click',()=>{
  diceRandom = (Math.round((Math.random() * (6 - 1) + 1)));
- dice.innerHTML = diceRandom;
+ scoreJ1 += diceRandom;
+ dice.innerHTML = scoreJ1;
+ img.src = "./img-dice/dice"+diceRandom+".png";
+
 })
 
 hold.addEventListener('click',()=>{
@@ -25,3 +30,7 @@ newGame.addEventListener('click', ()=>{
   score.innerHTML = scoreJ1;
   dice.innerHTML = "";
 })
+
+
+
+
