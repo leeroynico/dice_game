@@ -33,11 +33,21 @@ document.getElementById('hold').addEventListener('click',()=>{
   player===1 ? roundJ1.innerHTML = scoreJ1 : roundJ2.innerHTML = scoreJ2
   player===1 ? globalJ1.innerHTML = cumulJ1 : globalJ2.innerHTML = cumulJ2
   nextPlayer();
+  if (cumulJ1>30) {
+    alert('player A a gagné') ;
+    document.location.reload()
+   }
+   if (cumulJ2>30) {
+    alert('player B a gagné') ;
+    document.location.reload()
+   }
  })
 /*--new game--*/
 document.getElementById('newGame').addEventListener('click', ()=>{
   document.location.reload();
 })
+
+
 
 
 
