@@ -4,22 +4,21 @@ let globalJ1 = document.getElementById('globalJ1');
 let roundJ2 = document.getElementById('roundJ2');
 let globalJ2 = document.getElementById('globalJ2');
 let img = document.getElementById('dicePicture');
-
 let scoreJ1 = 0;
 let scoreJ2 = 0;
 let cumulJ1 = 0;
 let cumulJ2 = 0;
-
-let player = 1;
-function nextPlayer(){
-  player === 1 ? player ++ : player--
-};
+let player = 1; // player = 1 alors playerA, sinon plaer B (player =2)
+function nextPlayer(){player === 1 ? player ++ : player--};
 /*--bouton roll--*/
 document.getElementById('rollDice').addEventListener('click',()=>{
+  //génére un nombre aléatoire entre 1 et 6
  let diceRandom = Math.round((Math.random() * (6 - 1) + 1));
  img.src = "./img-dice/dice"+diceRandom+".png";
+  // si 1, perdu, sinon on cumul le score 
  if (diceRandom === 1){ 
   player===1 ? scoreJ1 = 0 : scoreJ2 = 0
+  alert ('dommage tu as fait 1, tu passes ton tour!')
   nextPlayer();
  } else {
   player===1 ? scoreJ1 += diceRandom : scoreJ2 += diceRandom};
@@ -28,18 +27,16 @@ document.getElementById('rollDice').addEventListener('click',()=>{
 
 /*--bouton hold--*/
 document.getElementById('hold').addEventListener('click',()=>{
-  cumulJ1 += scoreJ1;
-  scoreJ1 = 0;
-  roundJ1.innerHTML = scoreJ1;
-  globalJ1.innerHTML = cumulJ1;
+  player===1 ? cumulJ1 += scoreJ1 : cumulJ2 += scoreJ2
+  scoreJ1 = 0
+  scoreJ2 = 0
+  player===1 ? roundJ1.innerHTML = scoreJ1 : roundJ2.innerHTML = scoreJ2
+  player===1 ? globalJ1.innerHTML = cumulJ1 : globalJ2.innerHTML = cumulJ2
+  nextPlayer();
  })
-
-
 /*--new game--*/
 document.getElementById('newGame').addEventListener('click', ()=>{
-  rollDice.disabled = false;
-  scoreJ1 = 0;
-  scoreJ1.innerHTML = scoreJ1;
+  document.location.reload();
 })
 
 
