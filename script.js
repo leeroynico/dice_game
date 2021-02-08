@@ -14,7 +14,7 @@ function nextPlayer(){player === 1 ? player ++ : player--};
 document.getElementById('rollDice').addEventListener('click',()=>{
   //génére un nombre aléatoire entre 1 et 6 et affiche le dé
  let diceRandom = Math.round((Math.random() * (6 - 1) + 1));
- img.src = "./img-dice/dice"+diceRandom+".png";
+ img.src = "./images/dice"+diceRandom+".png";
   // si 1, perdu, sinon on cumul le score 
  if (diceRandom === 1){ 
   player===1 ? scoreJ1 = 0 : scoreJ2 = 0
@@ -49,11 +49,9 @@ document.getElementById('newGame').addEventListener('click', ()=>{
 
 /*--test new option--*/
 let winScore = document.getElementById('winScore');
-let limite = 0;
-document.getElementById('range-validation').addEventListener('click',()=>{
-  range = document.getElementById('range').value;
-  winScore.innerHTML = range;
-  limite = range
-  
+let limite = 100;
+  document.getElementById('range').addEventListener('ionChange',()=>{
+  limite = document.getElementById('range').value;
+  winScore.innerHTML = limite;
 })
 
