@@ -9,7 +9,12 @@ let scoreJ2 = 0;
 let cumulJ1 = 0;
 let cumulJ2 = 0;
 let player = 1; // player = 1 alors playerA, sinon plaer B (player =2)
+let card1 = document.getElementById('joueur1');
+let card2 = document.getElementById('joueur2');
+
+
 function nextPlayer(){player === 1 ? player ++ : player--};
+
 /*--bouton roll--*/
 document.getElementById('rollDice').addEventListener('click',()=>{
   //génére un nombre aléatoire entre 1 et 6 et affiche le dé
@@ -23,6 +28,13 @@ document.getElementById('rollDice').addEventListener('click',()=>{
  } else {
   player===1 ? scoreJ1 += diceRandom : scoreJ2 += diceRandom};
   player===1 ? roundJ1.innerHTML = scoreJ1 : roundJ2.innerHTML = scoreJ2;
+  if (player===1) {
+     card1.style.backgroundColor = 'red'
+     card2.style.backgroundColor = ''
+  }else { 
+     card2.style.backgroundColor = 'red'
+     card1.style.backgroundColor = '' 
+  }
 })
 
 /*--bouton hold--*/
@@ -33,6 +45,13 @@ document.getElementById('hold').addEventListener('click',()=>{
   player===1 ? roundJ1.innerHTML = scoreJ1 : roundJ2.innerHTML = scoreJ2
   player===1 ? globalJ1.innerHTML = cumulJ1 : globalJ2.innerHTML = cumulJ2
   nextPlayer();
+  if (player===1) {
+    card1.style.backgroundColor = 'red'
+    card2.style.backgroundColor = ''
+ }else { 
+    card2.style.backgroundColor = 'red'
+    card1.style.backgroundColor = '' 
+ }
   if (cumulJ1>limite) {
     alert('player A a gagné') 
     document.location.reload()
@@ -47,11 +66,18 @@ document.getElementById('newGame').addEventListener('click', ()=>{
   document.location.reload();
 })
 
-/*--test new option--*/
+/*--reglages score to win--*/
 let winScore = document.getElementById('winScore');
 let limite = 100;
   document.getElementById('range').addEventListener('ionChange',()=>{
   limite = document.getElementById('range').value;
   winScore.innerHTML = limite;
 })
+
+
+
+
+
+
+
 

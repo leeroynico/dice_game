@@ -8,50 +8,75 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
   <!--monstyle css-->
   <link rel="stylesheet" href="style.css"/>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
 </head>
 <body>
+
 <ion-grid>
-    <ion-row class="ion-justify-content-center ion-margin-vertical">
-        <ion-button color="danger" id="newGame">new game
-        </ion-button>
+    <ion-row class="ion-justify-content-around ion-margin-vertical">
+      <ion-col size="5">
+        <div>
+            <p><strong>Règles :</strong></p>
+            <p class="ion-text-justify"> C'est le player ONE qui commence</p>
+            <p class="ion-text-justify">Chaque joueur lance le dé (Roll), s'il fait '1' il passe son tour.
+            Quand il le souhaite il peut stocker (HOLD) son score (round).
+            Le premier qui arrive à 100* a gagné</p>
+            <em class="ion-text-justify">* : Il est possible de régler le nombre de points à atteindre 
+                (la valeur par défaut est à 100 points)</em>
+        </div>
+      </ion-col>
+      <ion-col size ="7">
+            <ion-row class="ion-justify-content-center">
+                <ion-button color="danger" id="newGame">new game
+                </ion-button>
+                </ion-row> 
+            <ion-row class="ion-justify-content-around">
+                <ion-col size = "5">
+                    <ion-button color="primary" id="rollDice"size="large"class="btn-roll">roll
+                    </ion-button>
+                </ion-col>
+                <ion-col size="5">
+                    <ion-button color="warning" id="hold"size="large">hold
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+            <ion-row class="ion-justify-content-center ion-margin-vertical">
+                <img src="./images/dice1.png" alt="dice" id="dicePicture"/>
+            </ion-row>
+      </ion-col>
     </ion-row>
-    <ion-row class="ion-justify-content-center ion-margin-vertical">
-        <img src="./images/dice1.png" alt="" id="dicePicture"/>
-    </ion-row>
-    <ion-row class="ion-justify-content-center ">
-        <ion-button color="primary" id="rollDice"size="large"class="btn-roll">roll
-        </ion-button>
-    </ion-row>
-    <ion-row class="ion-justify-content-center">
-        <ion-button color="warning" id="hold"size="large">hold
-        </ion-button>
-    </ion-row>
+   
+<ion-row>
+    <ion-col size="5">
+        <ion-card id="joueur1">
+            <ion-card-header>
+                <ion-card-title class="ion-margin-vertical">PLAYER ONE</ion-card-title>
+                <ion-card-title>round : <p id="roundJ1" class="ion-margin-start"></p></ion-card-title>
+                <ion-card-title>
+                GLOBAL : <p id="globalJ1" class="ion-margin-start"></p>
+                </ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </ion-col>
+    
+    <ion-col size="5">
+        <ion-card id="joueur2">
+        <ion-card-header>
+            <ion-card-title class="ion-margin-vertical">PLAYER TWO</ion-card-title>
+            <ion-card-title>round : <p id="roundJ2" class="ion-margin-start"></p></ion-card-title>
+            <ion-card-title>
+            GLOBAL : <p id="globalJ2" class="ion-margin-start"></p>
+            </ion-card-title>
+        </ion-card-header>
+        </ion-card>
+    </ion-col>
+</ion-row>  
 </ion-grid>
 
 
-<h1>Player 1</h1>
-
-
-
-<ion-item>
-<ion-label class="ion-margin-start">ton score J1:</ion-label>
-<ion-badge color="primary" id="roundJ1"class="ion-margin-start" slot="end"></ion-badge>
-</ion-item>
-<ion-item>
-<ion-label class="ion-margin-start">ton hold J1:</ion-label>
-<ion-badge color="warning" id="globalJ1" class="ion-margin-start"></ion-badge>
-</ion-item>
-<ion-item>
-<ion-label class="ion-margin-start">ton score J2:</ion-label>
-<ion-badge color="primary" id="roundJ2"class="ion-margin-start"></ion-badge>
-</ion-item>
-<ion-item>
-<ion-label class="ion-margin-start">ton hold J2:</ion-label>
-<ion-badge color="warning" id="globalJ2" class="ion-margin-start"></ion-badge>
-</ion-item>
-
 <ion-label class="ion-margin-start">score a atteindre</ion-label>
-<ion-badge color="warning" id="winScore" class="ion-margin-start"></ion-badge>
+<ion-badge color="warning" id="winScore" class="ion-margin-start">100</ion-badge>
 
 
 
@@ -68,8 +93,7 @@
 
 <!-- icons -->
 <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
-<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
-<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
 <script src="script.js"></script>
+
 </body>
 </html>

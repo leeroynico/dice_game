@@ -5,3 +5,11 @@ body,
 {
   font-family: 'Lato', sans-serif;
 }
+
+
+#joueur1 {
+  background-color: rgba(71, 190, 245, 0.3);
+}
+#joueur2 {
+  background-color: rgba(210, 105, 219, 0.3);
+}
