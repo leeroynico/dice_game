@@ -12,7 +12,7 @@ let player = 1; // player = 1 alors playerA, sinon plaer B (player =2)
 function nextPlayer(){player === 1 ? player ++ : player--};
 /*--bouton roll--*/
 document.getElementById('rollDice').addEventListener('click',()=>{
-  //génére un nombre aléatoire entre 1 et 6
+  //génére un nombre aléatoire entre 1 et 6 et affiche le dé
  let diceRandom = Math.round((Math.random() * (6 - 1) + 1));
  img.src = "./img-dice/dice"+diceRandom+".png";
   // si 1, perdu, sinon on cumul le score 
@@ -33,12 +33,12 @@ document.getElementById('hold').addEventListener('click',()=>{
   player===1 ? roundJ1.innerHTML = scoreJ1 : roundJ2.innerHTML = scoreJ2
   player===1 ? globalJ1.innerHTML = cumulJ1 : globalJ2.innerHTML = cumulJ2
   nextPlayer();
-  if (cumulJ1>30) {
-    alert('player A a gagné') ;
+  if (cumulJ1>limite) {
+    alert('player A a gagné') 
     document.location.reload()
    }
-   if (cumulJ2>30) {
-    alert('player B a gagné') ;
+   if (cumulJ2>limite) {
+    alert('player B a gagné') 
     document.location.reload()
    }
  })
@@ -47,8 +47,13 @@ document.getElementById('newGame').addEventListener('click', ()=>{
   document.location.reload();
 })
 
-
-
-
-
+/*--test new option--*/
+let winScore = document.getElementById('winScore');
+let limite = 0;
+document.getElementById('range-validation').addEventListener('click',()=>{
+  range = document.getElementById('range').value;
+  winScore.innerHTML = range;
+  limite = range
+  
+})
 
