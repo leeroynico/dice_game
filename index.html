@@ -14,7 +14,7 @@
 <body>
 
 <ion-grid>
-    <ion-row class="ion-justify-content-around ion-margin-vertical">
+    <ion-row>
       <ion-col size="5">
         <div>
             <p><strong>Règles :</strong></p>
@@ -30,14 +30,14 @@
             <ion-row class="ion-justify-content-center">
                 <ion-button color="danger" id="newGame">new game
                 </ion-button>
-                </ion-row> 
-            <ion-row class="ion-justify-content-around">
-                <ion-col size = "5">
-                    <ion-button color="primary" id="rollDice"size="large"class="btn-roll">roll
+            </ion-row> 
+            <ion-row class="ion-justify-content-center">
+                <ion-col class="ion-margin-vertical">
+                    <ion-button color="primary" id="rollDice"size="large" class="ion-margin-start" expand="full">roll
                     </ion-button>
                 </ion-col>
-                <ion-col size="5">
-                    <ion-button color="warning" id="hold"size="large">hold
+                <ion-col class="ion-margin-vertical">
+                    <ion-button color="warning" id="hold"size="large"class="ion-margin-start" expand="full">hold
                     </ion-button>
                 </ion-col>
             </ion-row>
@@ -48,52 +48,50 @@
     </ion-row>
    
 <ion-row>
-    <ion-col size="5">
+    <ion-col>
         <ion-card id="joueur1">
-            <ion-card-header>
-                <ion-card-title class="ion-margin-vertical">PLAYER ONE</ion-card-title>
-                <ion-card-title>round : <p id="roundJ1" class="ion-margin-start"></p></ion-card-title>
-                <ion-card-title>
-                GLOBAL : <p id="globalJ1" class="ion-margin-start"></p>
-                </ion-card-title>
+            <ion-card-header class="ion-no-padding ion-text-center">
+                <ion-card-title class="ion-margin-start">PLAYER ONE</ion-card-title>
             </ion-card-header>
+                <ion-card-content class="ion-margin-start">round : 
+                    <p id="roundJ1" class="ion-margin-start"></p>
+                    GLOBAL : 
+                    <p id="globalJ1" class="ion-margin-start"></p>
+                </ion-card-content>
+    
         </ion-card>
     </ion-col>
-    
-    <ion-col size="5">
+    <ion-col>
         <ion-card id="joueur2">
-        <ion-card-header>
-            <ion-card-title class="ion-margin-vertical">PLAYER TWO</ion-card-title>
-            <ion-card-title>round : <p id="roundJ2" class="ion-margin-start"></p></ion-card-title>
-            <ion-card-title>
-            GLOBAL : <p id="globalJ2" class="ion-margin-start"></p>
-            </ion-card-title>
+        <ion-card-header class="ion-no-padding ion-text-center">
+            <ion-card-title class="ion-margin-start">PLAYER TWO</ion-card-title>
         </ion-card-header>
+            <ion-card-content class="ion-margin-start">round : 
+                <p id="roundJ2" class="ion-margin-start"></p>
+                GLOBAL : 
+                <p id="globalJ2" class="ion-margin-start"></p>
+            </ion-card-content>
         </ion-card>
     </ion-col>
 </ion-row>  
 </ion-grid>
 
-
-<ion-label class="ion-margin-start">score a atteindre</ion-label>
-<ion-badge color="warning" id="winScore" class="ion-margin-start">100</ion-badge>
-
-
-
-
-<p>régler le nombre de points à atteindre pour la partie</p>
-<ion-item>
-    <ion-icon name="build-outline"></ion-icon>
-    <ion-range  min="50" max="150"color="danger" pin="true" id="range" step="10"value="100"></ion-range>
-    <ion-icon name="build-outline"></ion-icon>
-</ion-item>
- 
-
-
-
+<ion-card>
+    <ion-header class="ion-text-center ion-text-uppercase">
+        <ion-card-title> score a atteindre : <p id="winScore">100</p>
+        </ion-card-title>
+    </ion-header>
+    <ion-card-content>
+        <p class="ion-text-center">régler le nombre de points à atteindre pour la partie</p>
+        <ion-item class="ion-margin-bottom">
+            <ion-icon name="build-outline"></ion-icon>
+            <ion-range  min="50" max="150"color="danger" pin="true" id="range" step="10"value="100"></ion-range>
+            <ion-icon name="build-outline"></ion-icon>
+        </ion-item>
+    </ion-card-content>
+</ion-card>
 <!-- icons -->
 <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
